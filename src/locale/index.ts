@@ -4,6 +4,8 @@ import { App } from 'vue';
 import { useLocaleStoreWithOut } from '@/store';
 import { enLocale } from './lang/en-US';
 import { zhLocale } from './lang/zh-CN';
+import { getWindow } from 'ssr-window';
+const window = getWindow()
 
 // setup i18n instance with glob
 // let i18n: ReturnType<typeof createI18n>;

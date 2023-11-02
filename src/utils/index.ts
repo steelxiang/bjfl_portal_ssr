@@ -1,3 +1,4 @@
+import { getWindow } from 'ssr-window'
 interface DigitParams {
   places?: number
   thousand?: string
@@ -72,7 +73,7 @@ export function formatDate(date: Date | string | number, format: string) {
 }
 
 export function langOnBrowser(){
-  const pathName = window.location.pathname;
+  const pathName = getWindow().location.pathname;
   let lang;
   if(pathName.substring(0,3) === '/en'){
     lang = 'en-US';

@@ -1,4 +1,4 @@
-import { Router, createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { Router, createRouter, createWebHistory, RouteRecordRaw, createMemoryHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -150,8 +150,10 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
 
 routes.push(...asyncRoutes);
 const router: Router = createRouter({
-  history: createWebHistory(),
+  history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
   routes
 })
 
 export default router
+
+export const createRouterPro = (history : any) => createRouter({history, routes})
