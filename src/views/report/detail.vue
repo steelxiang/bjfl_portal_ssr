@@ -263,7 +263,7 @@
     import { MdHome,IosFiling, MdSearch } from '@vicons/ionicons4';
     import { NBreadcrumb, NBreadcrumbItem, NIcon,NTabs,NTabPane, NTable, NRadio,NModal, NButton, NSpace, NInputGroup, NInput} from 'naive-ui';
     import { useRoute, useRouter } from 'vue-router';
-    import { onMounted, ref, onUnmounted } from 'vue';
+    import { onMounted, ref, onUnmounted, onServerPrefetch } from 'vue';
     import { ResearchReport, researchReportForm } from '@/api/report/report';
     import { BaseUrl } from '@/api/model/common';
     import Demand from './demand.vue';
@@ -272,6 +272,7 @@
     import { useLocaleStore, useLocaleStoreWithOut } from '@/store';
     import { isMobile } from '@/utils/validate';
     import { langOnBrowser } from '@/utils';
+import { getWindow } from 'ssr-window';
 
     const route = useRoute();
     const router = useRouter();
@@ -295,7 +296,7 @@
     const pcBtnShow = ref<boolean>(true);
     //const mobileBtnShow = ref<string>('none');
 
-    onMounted( async() => {
+    async function getData() {
         if(isMobile()){
             pcBtnShow.value = false;
         } 
@@ -344,11 +345,15 @@
             pageNum.value = c3.data[0].configValue;
             chartNum.value = c3.data[1].configValue;
 
-            window.addEventListener('scroll',onScroll);
+            if (window) window.addEventListener('scroll',onScroll);
         }else{
             const language = lang === 'zh-CN'?'': 'en';
             router.push({ name: 'reports',params: {lang: language}});
         }
+    }
+
+    onMounted( async() => {
+        await getData
     });
 
     onUnmounted(() => {
@@ -487,6 +492,15 @@
         const language = lang === 'zh-CN'?'': 'en';
         router.push({ name: 'reports', params: { keyword: keyword.value, lang: language } });
     }
+
+    onServerPrefetch(async () => {
+        try {
+            await getData()
+        } catch (error) {
+            
+        }
+    })
+
 </script>
 
 <style lang="scss" scoped>

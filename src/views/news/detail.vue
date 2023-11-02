@@ -39,7 +39,7 @@
     import { MarketInfo, marketInfoDetailList } from '@/api/report/market';
     import { IosFiling, MdTime } from '@vicons/ionicons4';
     import { NIcon, NSpin } from 'naive-ui';
-    import { ref, watch,onMounted } from 'vue';
+    import { ref, watch,onMounted, onServerPrefetch } from 'vue';
     import { useRoute, useRouter } from 'vue-router';
     import { useI18n } from 'vue-i18n';
     import { useLocaleStoreWithOut } from '@/store';
@@ -85,6 +85,16 @@
         router.push({ name: 'newsDetail', params: { webTitle: item.webTitle+'-'+item.id} });
     }
 
+    onServerPrefetch(async () => {
+        try {
+            const webTitle = route.params.webTitle;
+            const wts = webTitle.split('-');
+
+            await getDetail(wts[wts.length - 1]);
+        } catch (error) {
+            
+        }
+    })
 
 </script>
 

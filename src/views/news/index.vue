@@ -91,7 +91,7 @@
     import { IosFiling,MdHome,MdSearch } from '@vicons/ionicons4';
     import { NIcon, NBreadcrumb, NBreadcrumbItem, NInput,NList,NListItem,NThing, NPagination,NSpin} from 'naive-ui';
     import { useRouter, useRoute} from 'vue-router';
-    import { onMounted, ref, watch } from 'vue';
+    import { onMounted, onServerPrefetch, ref, watch } from 'vue';
     import { getLocalSessionNews, getLocalSessionReport } from '@/store/cache';
     import { MarketInfo, marketInfoPageList } from '@/api/report/market';
     import { DictData } from '@/api/basedata/home';
@@ -184,6 +184,15 @@
     function handleSearch(){
         getData();
     }
+
+    onServerPrefetch(async () => {
+        try {
+            await getData()
+        } catch (error) {
+            
+        }
+    })
+
 </script>
 
 <style scoped lang="scss">

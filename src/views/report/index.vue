@@ -186,7 +186,7 @@
 </template>
 
 <script lang="ts" setup>
-    import { ref, onMounted, watch } from 'vue';
+    import { ref, onMounted, watch, onServerPrefetch } from 'vue';
     import { MdSearch, MdHome,IosFiling,MdTime } from '@vicons/ionicons4';
     import { NBreadcrumb, NBreadcrumbItem, NInput, NPagination,NIcon, NModal,NCheckbox,NTag,NInputNumber,NButton,NDatePicker,NSpin, PaginationInfo, NInputGroup, NEmpty } from 'naive-ui';
     import { useRouter,useRoute } from 'vue-router';
@@ -440,6 +440,15 @@
         record.value.pageNo = page;
         getData();
     }
+
+    onServerPrefetch(async () => {
+        try {
+            await getData()
+        } catch (error) {
+            
+        }
+    })
+
 
 </script>
 

@@ -370,7 +370,7 @@
     import { MdHome,IosFiling, MdSearch, IosAdd, IosRemove,MdArrowRoundDown } from '@vicons/ionicons4';
     import { NBreadcrumb, NBreadcrumbItem,NIcon, NCard,NModal, NInput, NTable } from 'naive-ui';
     import { useI18n } from 'vue-i18n';
-    import { onMounted, ref } from 'vue';
+    import { onMounted, onServerPrefetch, ref } from 'vue';
     import Demand from './../report/demand.vue';
     import { ResearchReport, hotResearchList } from '@/api/report/report';
     import { BaseUrl } from '@/api/model/common';
@@ -424,6 +424,15 @@
         const language = lang === 'zh-CN'?'':'en'
         router.push({ name: 'reports', params: { keyword: keyword.value, lang: language } });
     }
+
+    onServerPrefetch(async () => {
+        try {
+            const res = await hotResearchList({lang: lang});
+            hots.value = res.data;
+        } catch (error) {
+            
+        }
+    })
 
 </script>
 

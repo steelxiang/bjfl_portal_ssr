@@ -240,7 +240,7 @@
   import { NCarousel, NCarouselItem,NCard, NIcon, NInput, NModal, NButton, NInputGroup} from 'naive-ui';
   import { MdEye,MdReorder, MdSearch } from '@vicons/ionicons4';
   import { useI18n } from 'vue-i18n';
-  import { onMounted, ref } from 'vue';
+  import { onMounted, onServerPrefetch, ref } from 'vue';
   import { DictData, carouselListData, reportAndMarketListData } from '@/api/basedata/home';
   import { BaseUrl } from '@/api/model/common';
   import { useLocaleStoreWithOut } from '@/store';
@@ -314,6 +314,23 @@
     router.push({ name: 'reports', params: { category: value, lang: language }});
   }
 
+  onServerPrefetch(async () => {
+    try {
+      // 轮播图
+      const data = await carouselListData({lang: lang});
+      carouselList.value = data?.data;
+
+      // 研究报告分类
+      reportDict.value = await getLocalSessionReport();
+
+      // 研究报告列表
+      const map = await reportAndMarketListData({lang: lang});
+      reports.value = map.data.report;
+      markets.value = map.data.market;
+    } catch (error) {
+      
+    }
+  })
 </script>
 
 
