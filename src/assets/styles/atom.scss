@@ -1,0 +1,45 @@
+@import './mixins.scss';
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.flex-row {
+  @extend %flex-row;
+}
+
+.flex-row-center {
+  @extend %flex-row;
+  align-items: center;
+}
+
+.flex-row-center-center {
+  @extend %flex-row;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-center-between {
+  @extend %flex-row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  @extend %flex-column;
+}

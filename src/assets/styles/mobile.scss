@@ -1,0 +1,550 @@
+@media only screen and(max-width: 1200px) {
+    .container{width: 96%;}
+}
+
+@media only screen and (max-width: 980px) {
+    .container{
+        width: 96%;
+        .title{
+            font-size: 14px;
+            line-height: initial;
+            >h2{
+                font-size: 2em;
+                text-align: center;
+            }
+        }
+    }
+    
+    /**首页*/
+    #layout-wrapper{
+        .app-header{
+            height: 110px;
+            .header-wrapper{
+                background-color: #18a058;
+                .header-lang{
+                    text-align: right;
+                    color: #fff;
+                    padding: 5px 10px;
+                    .separator{
+                        padding: 0 7px;
+                    }
+                }
+                .header-inner{
+                    width: 100%;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+    #home-page .carousel{
+        .img{
+            .carousel-img{
+                max-height: 800px;
+            }
+        }
+        .desc{
+            width: 100%;
+            padding: 110px 10px 0 10px;
+            .slogan{
+                h3{ font-size: 17px; margin-top: 3em;}
+                p{font-size: 13px;}
+            }
+        } 
+    }
+
+    #reports-category{
+        .container{
+            padding: 0 0 30px 0;
+            .reports-category-box{
+                .rcb-box{
+                    width: 46%;
+                }
+            }
+        }
+    }
+
+    .report{
+        .container{
+            .report-content{
+                .report-box{
+                    width: 100% !important;
+                }
+            } 
+        } 
+    }
+
+    .hot-news .container .news-content .news-box{width: 50%;}
+    #hot-news .news-content{
+        :nth-child(5n+2).news-box{padding-top: 0;}
+        :nth-child(5n+3).news-box{padding-top: 0;}
+        :nth-child(5n+4).news-box{padding-top: 0;}
+        :nth-child(5n+5).news-box{padding-top: 0;}
+    }
+
+
+    #home-contact{
+        .contact-row{
+            width: 100%;
+            top: 60px;
+            .contact-txt{
+                width: 100%;
+                span{
+                    font-size: 16px;
+                }
+            }
+            .contact-btn{
+                width: 100%;
+                padding-top: 30px;
+                >a{
+                    font-size: 16px;
+                    padding: 10px 15px;
+                }
+            }
+        }
+        .contact-img{
+            height: 200px;
+        }
+    }
+
+    #app-footer{
+        .footer-main{
+            width: 96%;
+            .footer-logo{
+                width: 100%;
+            }
+            .footer-link{
+                width: 100%;
+            }
+            .footer-wx{
+                width: 100%;
+            }
+        }
+    }
+
+    /*报告*/
+    #page{
+        margin-top:  110px;
+        .top-title{
+            .top-container{
+                width: 96%;
+            }
+        }
+        .page-nav{
+            .page-nav-container{
+                width: 96%;
+                .content{
+                    .content-search{
+                        width: 100%;
+                    }
+                    .report-content{
+                        width: 100%;
+                        padding: 10px;
+                        margin-top: 20px;
+                        .box>ul>li{
+                            .text{
+                                width: calc(100% - 11em);
+                            }
+                            .mobile-time{
+                                width: 100%;
+                                padding: 1.2em 0;
+                                .n-icon{
+                                    vertical-align: sub;
+                                }
+                                .text-price{
+                                    padding: 0 1em;
+                                    >b{color: #f00;}
+                                }
+                            }
+                            .operate{
+                                width: 100%;
+                                text-align: center;
+                                padding-bottom: .5em;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    /*报告详情*/
+    #page{
+        .page-nav-container{
+            width: 96%;
+        }
+        #report-detail{
+            .detail-container{
+                .detail-info{
+                    .detail-box{
+                        width: 100%;
+                        .img{
+                            width: 10em;
+                        }
+                        .desc{
+                            width: calc(100% - 10.5em);
+                            p{
+                                font-size: 1.4em;
+                                height: 3em;
+                                margin: 0.5em 0 1.5em 0;
+                            }
+                            .desc-dt-box{
+                                .desc-dt-cnt{
+                                    font-size: 0.8em;
+                                    padding-bottom: 0.5em;
+                                }
+                            }
+                        }
+                        .mobile-btns{
+                            padding: 1.5em 0 .5em 0;
+                            width: 100%;
+                            justify-content: center;
+                            display: flex;
+                            .n-space{
+                                padding-right: 2em;
+                            }
+                        }
+                    }
+                }
+                .detail-price{
+                    width: 100%;
+                    padding-top: 2em;
+                }
+                .detail-content{
+                    .detail-content-mr{
+                        width: 100%;
+                    }
+                    .detail-content-ml{
+                        width: 100%;
+                        padding-top: 1.5em;
+                    }
+                }
+            }
+        }
+        #home-contact{
+            .contact-row{
+                width: 100%;
+                top: 5em;
+                .contact-txt{
+                    width: 100%;
+                    padding-bottom: 2em;
+                    span{
+                        font-size: 1.3em;
+                    }
+                }
+                .contact-btn{
+                    width: 100%;
+                    padding-top: 0;
+                    >a{
+                        font-size: 1.3em;
+                        padding: 0.5em 0.8em;
+                    }
+                }
+            }
+        }
+    }
+    /*定制研究*/
+    #market{
+        .market-page{
+            padding-top: 110px;
+            .page-top{
+                .img{
+                    height: 30em;
+                    img{
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .desc{
+                    width: 80%;
+                    >h3{
+                        font-size: 1em;
+                    }
+                    >p{
+                        font-size: .8em;
+                    }
+                }
+            }
+        }
+        .page-nav-container{
+            width: 96%;
+            .nav-container{
+                .search{
+                    width: 45%;
+                }
+            }
+        }
+        .market-method{
+            .row{
+                flex-wrap: wrap;
+                .row-line{
+                    width: 100%;
+                    .line-img{
+                        display: inline-block;
+                        span{
+                            line-height: 140px;
+                        }
+                    }
+                }
+                .row-arraow{
+                    width: 100%;
+                    text-align: center;
+                    padding: 1em 0;
+                    margin: 0;
+                }
+            }
+        }
+        .market-sector, .market-cases{padding: 0;}
+        .market-cases{
+            .cases-box{
+                .box{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    /*行业资讯*/
+    #page{
+        .news-content{
+            .content{
+                padding: 1em .5em;
+                .search{
+                    .search-keyword{
+                        padding-left: .8em;
+                    }
+                    .search-type{
+                        >a{
+                            padding: .5em .3em;
+                            width: 7em;
+                            margin: .2em auto;
+                            text-align: center;
+                        }
+                    }
+                }
+                .content-list{
+                    .n-list{
+                        padding: 1.5em 0;
+                        border-bottom: 1px solid #e3e3e3;
+                    }
+                    .content-list-item{
+                        padding: 1em .5em .5em;
+                        .img{
+                            width: 10em;
+                            height: 9em;
+                        }
+                        .list-title{
+                            font-size: 1.1em;
+                        }
+                    }
+                    .n-list__footer{
+                        padding: 0;
+                        .list-content{
+                            height: 80px;
+                            -webkit-line-clamp: 3;
+                        }
+                    }
+                }
+            }
+        }
+        /*详情*/
+        .newsdt-page{
+            .newsdt-container{
+                padding: 2em .8em;
+                .newsdt-title{
+                    font-size: 1.5em;
+                }
+                .newsdt-text{
+                    width: 100%;
+                    padding: 1em 0;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        /*公司简介*/
+        .intro{
+            flex-wrap: wrap;
+            padding: 1em .4em;
+            .about-img{
+                width: 100%;
+                padding: 0;
+            }
+            .about-desc{
+                width: 100%;
+                padding: 0;
+                >h2{
+                    font-size: 2em;
+                    margin: 1em 0 0;
+                    text-align: center;
+                }
+                >p{
+                    font-size: 1em;
+                }
+            }
+        }
+        .about-core{
+            .core-img{
+                >img{
+                    height: 25em;
+                }
+                .core-values{
+                    top: 2em;
+                    left: 1em;
+                    >h2{
+                        font-size: 2em;
+                        text-align: center;
+                        width: calc(100% - .5em);
+                    }
+                    >p{
+                        width: 100%;
+                        font-size: 1em;
+                        width: calc(100% - .5em);
+                    }
+                }
+            }
+        }
+        .about-team{
+            .team-cn{
+                padding: 2em 0;
+                .team-cnt{
+                    flex-wrap: wrap;
+                    padding: 1em .4em;
+                    .team-desc{
+                        width: 100%;
+                        padding: 0;
+                        >h2{
+                            font-size: 2em;
+                            text-align: center;
+                        }
+                        >p{
+                            font-size: 1em;
+                        }
+                    }
+                    .team-img{
+                        width: 100%;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+        .about-partner{
+            .container{
+                .title{
+                    font-size: 14px;
+                    >h2{
+                        font-size: 2em;
+                        text-align: center;
+                    }
+                }
+                .partner-box{
+                    .img{
+                        width: 50%;
+                        min-height: 10em;
+                    }
+                }
+            }
+        }
+        .about-culture{
+            .container{
+                padding: 2em 0 2.5em;
+                .title{
+                    font-size: 14px;
+                    >h2{
+                        font-size: 2em;
+                    }
+                }
+                .culture-box{
+                    flex-wrap: wrap;
+                    .box{
+                        width: 100%;
+                        padding-bottom: 1em;
+                    }
+                }
+            }
+        }
+        .research-show{
+            .research-content{
+                padding: 2em 0;
+                .show-box{
+                    flex-wrap: wrap;
+                    &:nth-child(2n){
+                        flex-direction: column-reverse;
+                    }
+                    .show-img{
+                        width: 100%;
+                    }
+                    .show-desc{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .report-source{
+            .container{
+                padding: 2em 0;
+                .desc{
+                    >p{
+                        font-size: 1em;
+                        margin: 0 0 1em;
+                    }
+                }
+            }
+        }
+        .partial-database{
+            .db-box{
+                .img{
+                    width: 50%;
+                    min-height: 10em;
+                }
+            }
+        }
+        /*订购流程*/
+        .order-process{
+            .container{
+                padding: 2em 0;
+                .process-list{
+                    .row{
+                        justify-content: space-around;
+                        &:nth-child(2n+1){
+                            flex-direction: row-reverse;
+                        }
+                        .row-desc{
+                            width: 70%;
+                            padding: 1em;
+                            >p{
+                                font-size: 1em;
+                            }
+                        }
+                        .row-index{
+                            width: 20%;
+                            .icon{
+                                top: 2.4em;
+                                left: .3em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .term-condition{
+            padding-bottom: 2em;
+        }
+    }
+}
+
+@media only screen and(max-width: 640px) {
+
+}
+
+@media only screen and(max-width: 480px) {
+
+}
+
+@media only screen and(max-width: 400px) {
+
+}
+
+@media only screen and(max-width: 380px) {
+
+}
