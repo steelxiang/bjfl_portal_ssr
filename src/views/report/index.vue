@@ -445,7 +445,7 @@
         try {
             await getData()
         } catch (error) {
-            
+            console.log(error)
         }
     })
 

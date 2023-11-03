@@ -3,7 +3,7 @@ import { createWebHistory } from 'vue-router'
 import { setupI18n } from '@/locale';
 
 async function boot() {
-  const { app, router } = await createApp(createWebHistory(""))
+  const { app, router } = createApp(createWebHistory(""))
   await setupI18n(app)
 
   // wait until router is ready before mounting to ensure hydration match

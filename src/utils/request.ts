@@ -1,9 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
-
 // 初始化
 const config = {
-  //baseURL: process.env.VUE_APP_BASE_API,
-  baseURL: '/api',
+  // baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: 'http://localhost:8981/api',
   timeout: 300000,
   headers:{
     // 'content-type': 'application/json;charset=UTF-8',

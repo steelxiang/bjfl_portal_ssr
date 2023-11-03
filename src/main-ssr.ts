@@ -14,7 +14,7 @@ import App from './App.vue'
 // SSR requires a fresh app instance per request, therefore we export a function
 // that creates a fresh app instance. If using Vuex, we'd also be creating a
 // fresh store here.
-export async function createApp(history: any) {
+export function createApp(history: any) {
   const app = createSSRApp(App)
   // const { collect } = setup(app)
   const pinia = createPinia()
