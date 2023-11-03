@@ -52,9 +52,9 @@ export default defineConfig(({ mode, command}) => {
             // Turning off brotliSize display can slightly reduce packaging time
             brotliSize: false,
             chunkSizeWarningLimit: 2000,
-            // rollupOptions: {
-            //     external: ['date-fns/esm']
-            // }
+            rollupOptions: {
+                external: ['date-fns/esm']
+            }
         },
 
         
