@@ -157,3 +157,14 @@ const router: Router = createRouter({
 export default router
 
 export const createRouterPro = (history : any) => createRouter({history, routes})
+
+// export function getRouteInfo(url: String, router: Router) {
+
+//   // 使用Vue Router的resolve方法来找到匹配的路由
+//   const { route } = router.resolve(url);
+
+//   // 在你的路由数据中找到匹配的路由
+//   const matchedRoute = routes.find(r => r.path === route.path);
+
+//   return matchedRoute;
+// }

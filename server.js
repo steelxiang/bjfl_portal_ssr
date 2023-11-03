@@ -98,12 +98,21 @@ export async function createServer(
         render = (await import('./dist/server/entry-server.js')).render
       }
 
-      const [appHtml, preloadLinks, cssHtml] = await render(url, manifest)
-
+      const [appHtml, preloadLinks, cssHtml, htmlInfo] = await render(url, manifest)
+      const {
+        lang,
+        title,
+        keywords,
+        desc,
+      } = htmlInfo
       const html = template
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml)
         .replace(`<!--css-outlet-->`, cssHtml)
+        .replace(`<html lang="zh">`, `<html lang="${lang}">`)
+        .replace(`<meta name="description" content="">`, `<meta name="description" content="${desc}">`)
+        .replace(`<meta name="keywords" content="">`, `<meta name="keywords" content="${keywords}">`)
+        .replace(`<title><%= title %></title>`, `<title>${title}</title>`)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e) {

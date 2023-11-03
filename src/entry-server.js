@@ -3,9 +3,46 @@ import { renderToString } from 'vue/server-renderer'
 import { createApp } from './main-ssr'
 import { createMemoryHistory } from 'vue-router'
 import { setup } from "@css-render/vue3-ssr"
+import { getWindow } from 'ssr-window'
+import { setupI18n } from '@/locale';
+import defaultSettings from './settings'
+
+function getHtmlInfo(url, router) {
+  const to = router.resolve(url)
+  let lang;
+  if(to.params.lang === 'en'){
+    lang = 'en-US';
+  }else{
+    lang = 'zh-CN'
+    // if(to.params.lang != ''){
+    //   next({path: to.path, params: to.params});
+    // }
+  }
+  // document.querySelector('html')?.setAttribute('lang',lang);
+  // 设置页面title
+  //const lang = useLocaleStoreWithOut().getLocale;
+  let title = '';
+  if(to.meta.title === '首页' || 'Home' === to.meta.title) {
+    title = ''
+  }else{
+    title = lang =='zh-CN'? to.meta.title + '-': to.meta.titleEn+'-';
+  }
+  title = lang === 'zh-CN'?title +defaultSettings.title:title+ defaultSettings.titleEn;
+  const keywords = lang === 'zh-CN'? defaultSettings.keyword: defaultSettings.keywordEn;
+  const desc = lang == 'zh-CN'? defaultSettings.desc: defaultSettings.descEn;
+  return {
+    lang,
+    title: title,
+    keywords,
+    desc,
+  }
+}
 
 export async function render(url, manifest) {
   const { app, router } = await createApp(createMemoryHistory(""))
+  getWindow().location.pathname = url
+  const htmlInfo = getHtmlInfo(url, router); 
+  await setupI18n(app)
   const { collect } = setup(app)
 
   // set the router to the desired URL before rendering
@@ -24,7 +61,7 @@ export async function render(url, manifest) {
   // request.
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
   const cssHtml = collect()
-  return [html, preloadLinks, cssHtml]
+  return [html, preloadLinks, cssHtml, htmlInfo]
 }
 
 function renderPreloadLinks(modules, manifest) {

@@ -1,7 +1,6 @@
 import { createPinia } from 'pinia'
 import { createSSRApp } from 'vue'
 import { createRouterPro } from './router'
-import { setupI18n } from '@/locale';
 import '@/assets/styles/index.scss'
 import './permission'
 import '@/assets/styles/animate.css';
@@ -22,6 +21,5 @@ export async function createApp(history: any) {
   app.use(pinia)
   const router = createRouterPro(history)
   app.use(router)
-  await setupI18n(app)
   return { app, router }
 }
