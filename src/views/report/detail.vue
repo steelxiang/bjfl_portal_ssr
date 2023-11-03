@@ -297,9 +297,13 @@ import { getWindow } from 'ssr-window';
     //const mobileBtnShow = ref<string>('none');
 
     async function getData() {
-        if(isMobile()){
-            pcBtnShow.value = false;
-        } 
+        try {
+            if(isMobile()){
+                pcBtnShow.value = false;
+            } 
+        } catch (error) {
+            
+        }
         
         const webTitle = route.params.webTitle;
         const wts = webTitle.split('-');
@@ -497,7 +501,7 @@ import { getWindow } from 'ssr-window';
         try {
             await getData()
         } catch (error) {
-            
+            console.log(error)
         }
     })
 
