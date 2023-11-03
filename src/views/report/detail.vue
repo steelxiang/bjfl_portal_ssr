@@ -353,7 +353,7 @@ import { getWindow } from 'ssr-window';
     }
 
     onMounted( async() => {
-        await getData
+        await getData()
     });
 
     onUnmounted(() => {
