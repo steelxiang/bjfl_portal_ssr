@@ -165,6 +165,9 @@
                                 </n-tab-pane>
                             </n-tabs>
                         </div>
+                        <!-- 用于SEO -->
+                        <div style="display: none" v-html="record?.directoryHtml"> </div>
+                        <div style="display: none" v-html="record?.chartsHtml"> </div>
                         <div class="detail-business">
                             <n-tabs justify-content="space-evenly" size="large" pane-style="border-top: 1px solid #e1e1e1;padding: 20px" :animated="true"
                                 tab-style="padding:20px;">
@@ -349,7 +352,11 @@ import { getWindow } from 'ssr-window';
             pageNum.value = c3.data[0].configValue;
             chartNum.value = c3.data[1].configValue;
 
-            if (window) window.addEventListener('scroll',onScroll);
+            try {
+                window.addEventListener('scroll',onScroll);
+            } catch (error) {
+                
+            } 
         }else{
             const language = lang === 'zh-CN'?'': 'en';
             router.push({ name: 'reports',params: {lang: language}});

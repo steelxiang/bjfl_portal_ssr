@@ -98,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="report-content fadeInRight" data-wow-duration="3s" data-wow-delay="0s" data-wow-offset="0">
+                    <div class="report-content wow fadeInRight" data-wow-duration="3s" data-wow-delay="0s" data-wow-offset="0">
                         <div class="search">
                             <div class="search-text">
                                 <n-tag v-if="categoryTag" type="success" closable @close="handleCloseTag($event,'marketType')">{{ categoryTag }}</n-tag>
@@ -227,6 +227,9 @@
     const prices = ref<ResearchReport[]>();
     const publishDates = ref<ResearchReport[]>();
     onMounted(async () => {
+        if (typeof window !== 'undefined') {
+            window.scrollTo(0, 1);
+        }
         // 接收参数，导航栏进入
         const marketType = route.params.category;
         record.value.marketType = marketType;
@@ -461,8 +464,6 @@
             console.log(error)
         }
     })
-
-
 </script>
 
 <style lang="scss" scoped>

@@ -187,9 +187,18 @@
 
     onServerPrefetch(async () => {
         try {
-            await getData()
+            const dicts = await getLocalSessionReport();
+            reportTypes.value = dicts;
+
+            const dicts02 = await getLocalSessionNews();
+            newsCategory.value = dicts02;
+
+            params.value.marketType = route.params.marketType;
+            params.value.lang = lang;
+            const ret = await marketInfoPageList(params.value);
+            pageList.value = ret.data;
         } catch (error) {
-            
+            console.log(error)
         }
     })
 

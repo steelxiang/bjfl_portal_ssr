@@ -6,7 +6,6 @@ import { setup } from "@css-render/vue3-ssr"
 import { getWindow } from 'ssr-window'
 import { setupI18n } from '@/locale';
 import defaultSettings from './settings'
-import nProgress from 'nprogress'
 
 function getHtmlInfo(url, router) {
   const to = router.resolve(url)
@@ -40,7 +39,6 @@ function getHtmlInfo(url, router) {
 }
 
 export async function render(url, manifest) {
-  nProgress.start();
   const { app, router } = await createApp(createMemoryHistory(""))
   getWindow().location.pathname = url
   const htmlInfo = getHtmlInfo(url, router); 

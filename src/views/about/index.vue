@@ -152,9 +152,14 @@
 <script lang="ts" setup>
     import { IosFiling,MdHome } from '@vicons/ionicons4';
     import { NIcon, NBreadcrumb, NBreadcrumbItem, NCard } from 'naive-ui';
+    import { onMounted } from 'vue';
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
-    
+    onMounted(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo(0, 1);
+      }
+    });
 </script>
 
 <style lang="scss" scoped>

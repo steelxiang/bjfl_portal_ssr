@@ -34,7 +34,7 @@ export const getLocalSessionReport = async () =>{
 
 // 市场资讯
 export const getLocalSessionNews = async () => {
-    const session = window.sessionStorage;
+    // const session = window.sessionStorage;
     if('zh-CN' == lang){
         // const cacheDict = session.getItem(NEWS_CATEGORY);
         // if(!cacheDict){
