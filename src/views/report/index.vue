@@ -98,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="report-content wow fadeInRight" data-wow-duration="3s" data-wow-delay="0s" data-wow-offset="0">
+                    <div class="report-content fadeInRight" data-wow-duration="3s" data-wow-delay="0s" data-wow-offset="0">
                         <div class="search">
                             <div class="search-text">
                                 <n-tag v-if="categoryTag" type="success" closable @close="handleCloseTag($event,'marketType')">{{ categoryTag }}</n-tag>
@@ -443,7 +443,20 @@
 
     onServerPrefetch(async () => {
         try {
-            await getData()
+            const marketType = route.params.category;
+            record.value.marketType = marketType;
+            
+            const keyword = route.params.keyword;
+            if(keyword){
+                record.value.queryKeyword = keyword;
+            }
+
+            // 列表
+            await getData();
+
+            // 此段代码解决无法监听home页面跳转显示tag问题
+            const item = containsType(categories.value, marketType);
+            categoryTag.value = item?.marketTypeName;
         } catch (error) {
             console.log(error)
         }

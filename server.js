@@ -127,8 +127,8 @@ export async function createServer(
 
 if (!isTest) {
   createServer().then(({ app }) =>
-    app.listen(8981, () => {
-      console.log('http://localhost:8981')
+    app.listen(80, () => {
+      console.log('http://localhost:80')
     }),
   )
 }

@@ -32,7 +32,7 @@ export default defineConfig(({ mode, command}) => {
             proxy:{
                 "/api":{
                     changeOrigin: true,   //允许跨域
-                    target: VITE_APP_BASE_API,      //代理服务器地址
+                    target: "https://bjfl.dirmarketresearch.com/js/a/api",      //代理服务器地址
                     rewrite: (path) => path.replace(new RegExp("^/api"),""),    // 忽略api前缀，将'/api'替换成''
                     ws: true,
                 }
