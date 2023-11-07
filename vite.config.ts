@@ -15,7 +15,7 @@ export default defineConfig(({ mode, command}) => {
             }
         },
         resolve: {
-            extensions: [".vue",".mjs",".ts",".txs",".js"],
+            extensions: [".vue",".mjs",".ts",".txs",".js", ".json"],
             alias: {
                 "@": resolve("src")
             },
@@ -52,11 +52,10 @@ export default defineConfig(({ mode, command}) => {
             // Turning off brotliSize display can slightly reduce packaging time
             brotliSize: false,
             chunkSizeWarningLimit: 2000,
-            rollupOptions: {
-                external: ['date-fns/esm']
-            }
         },
 
-        
+        ssr: {
+            noExternal: ["naive-ui", "vueuc", "vue-i18n", "date-fns"], 
+        },
     }
 })

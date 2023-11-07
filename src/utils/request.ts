@@ -12,6 +12,12 @@ const config = {
   withCredentials: true
 }
 
+try {
+  window
+} catch (error) {
+  config.baseURL = `http://localhost:${process.env.NODE_PORT || 8981}/api`
+}
+
 /**
  * 返回数据类型
  * @property code 编码

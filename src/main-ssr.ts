@@ -2,7 +2,6 @@ import { createPinia } from 'pinia'
 import { createSSRApp } from 'vue'
 import { createRouterPro } from './router'
 import '@/assets/styles/index.scss'
-import './permission'
 import '@/assets/styles/animate.css';
 import '@/assets/font/iconfont.css';
 import '@/assets/styles/mobile.scss';

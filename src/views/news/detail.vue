@@ -87,12 +87,17 @@
 
     onServerPrefetch(async () => {
         try {
-            const webTitle = route.params.webTitle;
+            const webTitle = route.params.webTitle; 
             const wts = webTitle.split('-');
 
-            await getDetail(wts[wts.length - 1]);
+             const ret = await marketInfoDetailList({id: wts[wts.length - 1], lang: langOnBrowser() });
+            if(Object.keys(ret.data).length != 0){
+                    vo.value = ret.data.vo;
+                    last.value = ret.data.last;
+                    next.value = ret.data.next;
+            } 
         } catch (error) {
-            
+            console.log(error)
         }
     })
 
