@@ -154,7 +154,7 @@
                             <div class="sv-icon"><n-icon :component="show01?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show01">
+                            <div class="sv-desc" v-show="show01">
                                 <p>{{ t('market.service.fstDesc01') }}</p>
                                 <p>{{ t('market.service.fstDesc02')}}</p>
                             </div>
@@ -167,7 +167,7 @@
                             <div class="sv-icon"><n-icon :component="show02?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show02">
+                            <div class="sv-desc" v-show="show02">
                                 <p>{{ t('market.service.sndDesc01') }}</p>
                                 <p>{{ t('market.service.sndDesc02') }}</p>
                             </div>
@@ -180,7 +180,7 @@
                             <div class="sv-icon"><n-icon :component="show03?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show03">
+                            <div class="sv-desc" v-show="show03">
                                 <p>{{ t('market.service.thrDesc') }}</p>
                             </div>
                         </transition>
@@ -192,7 +192,7 @@
                             <div class="sv-icon"><n-icon :component="show04?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show04">
+                            <div class="sv-desc" v-show="show04">
                                 <p>{{ t('market.service.forDesc01') }}</p>
                                 <p>{{ t('market.service.forDesc02') }}</p>
                                 <p>{{ t('market.service.forDesc03') }}</p>
@@ -207,7 +207,7 @@
                             <div class="sv-icon"><n-icon :component="show05?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show05">
+                            <div class="sv-desc" v-show="show05">
                                 <p>{{ t('market.service.fivDesc01') }}</p>
                                 <p>{{ t('market.service.fivDesc02') }}</p>
                             </div>
@@ -220,7 +220,7 @@
                             <div class="sv-icon"><n-icon :component="show06?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show06">
+                            <div class="sv-desc" v-show="show06">
                                 <p>{{ t('market.service.sixDesc01') }}</p>
                                 <p>{{ t('market.service.sixDesc02') }}</p>
                             </div>
@@ -233,7 +233,7 @@
                             <div class="sv-icon"><n-icon :component="show07?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show07">
+                            <div class="sv-desc" v-show="show07">
                                 <p>{{ t('market.service.sevDesc') }}</p>
                             </div>
                         </transition>
@@ -245,7 +245,7 @@
                             <div class="sv-icon"><n-icon :component="show08?IosRemove:IosAdd" size="30" color="#000"/></div>
                         </div>
                         <transition name="sv">
-                            <div class="sv-desc" v-if="show08">
+                            <div class="sv-desc" v-show="show08">
                                 <p>{{ t('market.service.egtDesc') }}</p>
                             </div>
                         </transition>

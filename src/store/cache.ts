@@ -6,10 +6,10 @@ const NEWS_CATEGORY = "NEWS_CATEGORY";
 const REPORTS_CATEGORY_EN = "REPORTS_CATEGORY_EN";
 const NEWS_CATEGORY_EN = "NEWS_CATEGORY_EN";
 //const lang = useLocaleStoreWithOut().getLocale;
-const lang = langOnBrowser();
+
 
 // 报告分类
-export const getLocalSessionReport = async () =>{
+export const getLocalSessionReport = async () =>{const lang = langOnBrowser();
     // const session = window.sessionStorage;
     if('zh-CN' === lang){
         // const cacheDict = session.getItem(REPORTS_CATEGORY);
@@ -33,7 +33,7 @@ export const getLocalSessionReport = async () =>{
 }
 
 // 市场资讯
-export const getLocalSessionNews = async () => {
+export const getLocalSessionNews = async () => {const lang = langOnBrowser();
     // const session = window.sessionStorage;
     if('zh-CN' == lang){
         // const cacheDict = session.getItem(NEWS_CATEGORY);

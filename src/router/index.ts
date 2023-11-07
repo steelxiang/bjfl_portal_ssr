@@ -76,10 +76,10 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/market',
-    name: 'market',
+    path: '/marketA',
+    name: 'marketA',
     component: Layout,
-    // redirect:'/market',
+    redirect:'/market',
     meta: { title: '市场报告' },
     children:[{
       name: 'marketIndex',
