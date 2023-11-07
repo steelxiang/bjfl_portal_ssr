@@ -153,21 +153,18 @@
                         <div class="detail-integrity" ref="detailIntegrityRef">
                             <n-tabs justify-content="space-evenly" size="large" pane-style="border-top: 1px solid #e1e1e1;padding: 20px" :animated="true"
                                 tab-style="padding:20px;">
-                                <n-tab-pane :name="t('report.detail.scope')">
+                                <n-tab-pane :name="t('report.detail.scope')" display-directive="show">
                                     <div v-html="record?.reportScopeHtml"></div>
                                 </n-tab-pane>
-                                <n-tab-pane :name="t('report.detail.direct')">
+                                <n-tab-pane :name="t('report.detail.direct')" display-directive="show">
                                     <!--@click="handleDir" -->
                                     <div class="detail-directory" v-html="record?.directoryHtml"></div>
                                 </n-tab-pane>
-                                <n-tab-pane :name="t('report.detail.chartsDir')">
+                                <n-tab-pane :name="t('report.detail.chartsDir')" display-directive="show">
                                     <div v-html="record?.chartsHtml"></div>
                                 </n-tab-pane>
                             </n-tabs>
                         </div>
-                        <!-- 用于SEO -->
-                        <div style="display: none" v-html="record?.directoryHtml"> </div>
-                        <div style="display: none" v-html="record?.chartsHtml"> </div>
                         <div class="detail-business">
                             <n-tabs justify-content="space-evenly" size="large" pane-style="border-top: 1px solid #e1e1e1;padding: 20px" :animated="true"
                                 tab-style="padding:20px;">
