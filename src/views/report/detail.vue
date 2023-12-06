@@ -263,7 +263,7 @@
     import { MdHome,IosFiling, MdSearch } from '@vicons/ionicons4';
     import { NBreadcrumb, NBreadcrumbItem, NIcon,NTabs,NTabPane, NTable, NRadio,NModal, NButton, NSpace, NInputGroup, NInput} from 'naive-ui';
     import { useRoute, useRouter } from 'vue-router';
-    import { onMounted, ref, onUnmounted, onServerPrefetch } from 'vue';
+    import { onMounted, ref, onUnmounted, onServerPrefetch, inject } from 'vue';
     import { ResearchReport, researchReportForm } from '@/api/report/report';
     import { BaseUrl } from '@/api/model/common';
     import Demand from './demand.vue';
@@ -272,7 +272,8 @@
     import { useLocaleStore, useLocaleStoreWithOut } from '@/store';
     import { isMobile } from '@/utils/validate';
     import { langOnBrowser } from '@/utils';
-import { getWindow } from 'ssr-window';
+    import { getWindow } from 'ssr-window';
+    import cheerio from 'cheerio'
 
     const route = useRoute();
     const router = useRouter();
@@ -295,6 +296,8 @@ import { getWindow } from 'ssr-window';
     const keyword = ref<string>('');  //关键字
     const pcBtnShow = ref<boolean>(true);
     //const mobileBtnShow = ref<string>('none');
+    const globalTitleKeywordsDescription = inject('globalTitleKeywordsDescription')
+    const setTitleKeywordsDescription = inject('setTitleKeywordsDescription')
 
     async function getData() {
         try {
@@ -354,6 +357,7 @@ import { getWindow } from 'ssr-window';
             } catch (error) {
                 
             } 
+            return ret.data
         }else{
             const language = lang === 'zh-CN'?'': 'en';
             router.push({ name: 'reports',params: {lang: language}});
@@ -361,7 +365,9 @@ import { getWindow } from 'ssr-window';
     }
 
     onMounted( async() => {
-        await getData()
+        const data = await getData()
+        const titleMetaInfo = getTitleKeywordsDescription(data)
+        document.title = titleMetaInfo.title
     });
 
     onUnmounted(() => {
@@ -503,11 +509,32 @@ import { getWindow } from 'ssr-window';
 
     onServerPrefetch(async () => {
         try {
-            await getData()
+            const data = await getData()
+            setTitleKeywordsDescription(getTitleKeywordsDescription(data))
         } catch (error) {
             console.log(error)
         }
     })
+
+    function getTitleKeywordsDescription(data: any) {
+        let doc, title, description, keywords
+        try {
+            if (typeof window == 'undefined' && data.reportScopeHtml) {
+                let $ = cheerio.load(data.reportScopeHtml);
+                description = $('p').eq(4).text();
+            }
+            title = data.title;
+            keywords = data.context
+        } catch (error) {
+            console.log("getTitleKeywordsDescription", error)
+        }
+
+        return {
+            title,
+            keywords,
+            description,
+        }
+    }
 
 </script>
 
